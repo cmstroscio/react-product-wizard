@@ -1,42 +1,58 @@
 /**
  * @jsx React.DOM
  */
-var React = require('react')
+var React                   = require('react')
+var getRadioOrCheckboxValue = require('../lib/radiobox-value')
 
-var AccountFields = React.createClass({
+var SurveyFields = React.createClass({
+
+  renderOptions: function(type, name, value, index) {
+    var isChecked = function() {
+      if (type == 'radio') return value == this.props.fieldValues[name]
+
+      if (type == 'checkbox') return this.props.fieldValues[name].indexOf(value) >= 0
+
+      return false
+    }.bind(this)
+
+    return (
+      <label key={index}>
+        <input type={type} name={name} value={value} defaultChecked={isChecked()} /> {value}
+      </label>
+    )
+  },
+
   render: function() {
     return (
       <div>
-        <h2>Account Details</h2>
+        <h2>What do you want to do?</h2>
         <ul className="form-fields">
-          <li>
-            <label>Name</label>
-            <input type="text" ref="name" defaultValue={this.props.fieldValues.name} />
+          <li className="radio">
+            <span className="label">Age</span>
+            {['Optimize unstructured data', '27-38', '39-50', '51-62'].map(this.renderOptions.bind(this, 'radio', 'age'))}
           </li>
-          <li>
-            <label>Password</label>
-            <input type="password" ref="password" defaultValue={this.props.fieldValues.password} />
+          <li className="checkbox">
+            <span className="label">Favorite Colors</span>
+            {['Blue', 'Red', 'Orange', 'Green'].map(this.renderOptions.bind(this, 'checkbox', 'colors'))}
           </li>
-          <li>
-            <label>Email</label>
-            <input type="email" ref="email" defaultValue={this.props.fieldValues.email} />
-          </li>
-          <li className="form-footer">
-            <button className="btn -primary pull-right" onClick={this.nextStep}>Save &amp; Continue</button>
-          </li>
+  
         </ul>
+        <div className="form-footer">
+          <button className="btn -default pull-left" onClick={this.props.previousStep}>Back</button>
+          <button className="btn -primary pull-right" onClick={this.nextStep}>Save &amp; Continue</button>
+        </div>
       </div>
     )
   },
 
-  nextStep: function(e) {
-    e.preventDefault()
+  nextStep: function() {
+    // Get values via querySelector
+    var age    = document.querySelector('input[name="age"]:checked')
+    var colors = document.querySelectorAll('input[name="colors"]')
 
-    // Get values via this.refs
     var data = {
-      name     : this.refs.name.getDOMNode().value,
-      password : this.refs.password.getDOMNode().value,
-      email    : this.refs.email.getDOMNode().value,
+      age    : getRadioOrCheckboxValue(age),
+      colors : getRadioOrCheckboxValue(colors)
     }
 
     this.props.saveValues(data)
@@ -44,4 +60,4 @@ var AccountFields = React.createClass({
   }
 })
 
-module.exports = AccountFields
+module.exports = SurveyFields
