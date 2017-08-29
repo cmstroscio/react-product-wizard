@@ -8,10 +8,10 @@ var Success       = require('./Success')
 var SurveyFields  = require('./SurveyFields')
 var assign        = require('object-assign')
 
-// Idealy, these form values would be saved in another
+// Ideally, these form values would be saved in another
 // sort of persistence, like a Store via Flux pattern
 var fieldValues = {
-  name     : null,
+  task     : null,
   email    : null,
   password : null,
   age      : null,

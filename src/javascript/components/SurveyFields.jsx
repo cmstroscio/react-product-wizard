@@ -29,7 +29,7 @@ var SurveyFields = React.createClass({
         <ul className="form-fields">
           <li className="radio">
             <span className="label">Age</span>
-            {['18-26', '27-38', '39-50', '51-62'].map(this.renderOptions.bind(this, 'radio', 'age'))}
+            {['Harness the power of the hybrid cloud', 'Modernize storage through data management',  'Build a next generation data center', 'Modernize storage through data management'].map(this.renderOptions.bind(this, 'radio', 'focus'))}
           </li>
           <li className="checkbox">
             <span className="label">Favorite Colors</span>
@@ -46,11 +46,11 @@ var SurveyFields = React.createClass({
 
   nextStep: function() {
     // Get values via querySelector
-    var age    = document.querySelector('input[name="age"]:checked')
+    var focus    = document.querySelector('input[name="focus"]:checked')
     var colors = document.querySelectorAll('input[name="colors"]')
 
     var data = {
-      age    : getRadioOrCheckboxValue(age),
+      focus    : getRadioOrCheckboxValue(focus),
       colors : getRadioOrCheckboxValue(colors)
     }
 
