@@ -27,30 +27,35 @@ var SurveyFields = React.createClass({
       <div>
         <h2>Survey Question</h2>
         <ul className="form-fields">
-          <li className="radio">
-            <span className="label">Age</span>
-            {['Harness the power of the hybrid cloud', 'Modernize storage through data management',  'Build a next generation data center', 'Modernize storage through data management'].map(this.renderOptions.bind(this, 'radio', 'focus'))}
-          </li>
           <li className="checkbox">
             <span className="label">Favorite Colors</span>
-            {['Blue', 'Red', 'Orange', 'Green'].map(this.renderOptions.bind(this, 'checkbox', 'colors'))}
-          </li>
-          <li className="form-footer">
-            <button className="btn -default pull-left" onClick={this.props.previousStep}>Back</button>
-            <button className="btn -primary pull-right" onClick={this.nextStep}>Save &amp; Continue</button>
+            { ['Optimize unstructured data', 
+              'Integrate Cloud Data Services', 
+              'Accelerate Your DevOps Journey', 
+              'Build Cloud Hosting Infrastructure', 
+              'Accelerate Workloads and Analytics', 
+              'Protect and Secure Data', 
+              'Simplify and Automate', 
+              'Gain Data Center Efficiencies', 
+              'Deliver Data Insights and Control']
+            .map(this.renderOptions.bind(this, 'checkbox', 'colors'))}
           </li>
         </ul>
+        <div className="form-footer">
+          <button className="btn -default pull-left" onClick={this.props.previousStep}>Back</button>
+          <button className="btn -primary pull-right" onClick={this.nextStep}>Save &amp; Continue</button>
+        </div>
       </div>
     )
   },
 
   nextStep: function() {
     // Get values via querySelector
-    var focus    = document.querySelector('input[name="focus"]:checked')
+    // var focus    = document.querySelector('input[name="focus"]:checked')
     var colors = document.querySelectorAll('input[name="colors"]')
 
     var data = {
-      focus    : getRadioOrCheckboxValue(focus),
+      // focus    : getRadioOrCheckboxValue(focus),
       colors : getRadioOrCheckboxValue(colors)
     }
 
