@@ -4,7 +4,7 @@
 var React                   = require('react')
 var getRadioOrCheckboxValue = require('../lib/radiobox-value')
 
-var SurveyFields = React.createClass({
+var FocusFields = React.createClass({
 
   renderOptions: function(type, name, value, index) {
     var isChecked = function() {
@@ -46,11 +46,11 @@ var SurveyFields = React.createClass({
 
   nextStep: function() {
     // Get values via querySelector
-    var notInUse    = document.querySelector('input[name="notInUse"]:checked')
+    // var notInUse    = document.querySelector('input[name="notInUse"]:checked')
     var focus = document.querySelectorAll('input[name="focus"]')
 
     var data = {
-      notInUse    : getRadioOrCheckboxValue(notInUse),
+      // notInUse    : getRadioOrCheckboxValue(notInUse),
       focus : getRadioOrCheckboxValue(focus)
     }
 
@@ -59,4 +59,4 @@ var SurveyFields = React.createClass({
   }
 })
 
-module.exports = SurveyFields
+module.exports = FocusFields

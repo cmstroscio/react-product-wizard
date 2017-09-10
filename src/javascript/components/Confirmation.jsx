@@ -7,7 +7,7 @@ var Confirmation = React.createClass({
   render: function() {
     return (
       <div>
-        <h2>Confirm Registration</h2>
+        <h2>Confirm Request</h2>
         <ul>
           <li><b>Name:</b> {this.props.fieldValues.name}</li>
           <li><b>Email:</b> {this.props.fieldValues.email}</li>

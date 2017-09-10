@@ -2,10 +2,12 @@
  * @jsx React.DOM
  */
 var React         = require('react')
-var AccountFields = require('./AccountFields')
+var FocusFields = require('./FocusFields')
+var SurveyFields  = require('./SurveyFields')
+var Email  =        require('./Email')
 var Confirmation  = require('./Confirmation')
 var Success       = require('./Success')
-var SurveyFields  = require('./SurveyFields')
+
 var assign        = require('object-assign')
 
 // Ideally, these form values would be saved in another
@@ -54,7 +56,7 @@ var Registration = React.createClass({
   showStep: function() {
     switch (this.state.step) {
       case 1:
-        return <AccountFields fieldValues={fieldValues}
+        return <FocusFields fieldValues={fieldValues}
                              nextStep={this.nextStep}
                              previousStep={this.previousStep}
                              saveValues={this.saveValues} />
@@ -64,10 +66,16 @@ var Registration = React.createClass({
                              previousStep={this.previousStep}
                              saveValues={this.saveValues} />
       case 3:
+        return <Email        fieldValues={fieldValues}
+                             nextStep={this.nextStep}
+                             previousStep={this.previousStep}
+                             saveValues={this.saveValues} />
+
+      case 4:
         return <Confirmation fieldValues={fieldValues}
                              previousStep={this.previousStep}
                              submitRegistration={this.submitRegistration} />
-      case 4:
+      case 5:
         return <Success fieldValues={fieldValues} />
     }
   },

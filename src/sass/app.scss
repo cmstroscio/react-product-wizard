@@ -112,6 +112,7 @@ body {
   padding: 0;
   display: flex;
   justify-content: flex-start;
+  flex-direction: column;
 
   > li {
     margin-bottom: 20px;

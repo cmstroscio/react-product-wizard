@@ -25,10 +25,10 @@ var SurveyFields = React.createClass({
   render: function() {
     return (
       <div>
-        <h2>Survey Question</h2>
+        <h2>Use Cases</h2>
         <ul className="form-fields">
           <li className="checkbox">
-            <span className="label">Favorite Colors</span>
+            <span className="label">What would you like help with?</span>
             { ['Optimize unstructured data', 
               'Integrate Cloud Data Services', 
               'Accelerate Your DevOps Journey', 
