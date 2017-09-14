@@ -5,6 +5,7 @@ var React         = require('react')
 var FocusFields = require('./FocusFields')
 var SurveyFields  = require('./SurveyFields')
 var Email  =        require('./Email')
+var Products = require('./Products')
 var Confirmation  = require('./Confirmation')
 var Success       = require('./Success')
 
@@ -66,7 +67,7 @@ var Registration = React.createClass({
                              previousStep={this.previousStep}
                              saveValues={this.saveValues} />
       case 3:
-        return <Email        fieldValues={fieldValues}
+        return <Email     fieldValues={fieldValues}
                              nextStep={this.nextStep}
                              previousStep={this.previousStep}
                              saveValues={this.saveValues} />

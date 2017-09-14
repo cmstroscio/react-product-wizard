@@ -25,7 +25,7 @@ var FocusFields = React.createClass({
   render: function() {
     return (
       <div>
-        <h2>What do you want to do?</h2>
+        <h2>Which of these options best summarize your objectives?</h2>
         <ul className="form-fields">
           <li className="checkbox">
             <span className="label">High Level Summary</span>

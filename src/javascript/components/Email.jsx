@@ -8,7 +8,7 @@ var Email = React.createClass({
   render: function() {
     return (
       <div>
-        <h2>Account Details</h2>
+        <h4>Please enter your name and email, so that we can send your customized list or products and solutions!</h4>
         <ul className="form-fields">
           <li>
             <label>Name</label>
