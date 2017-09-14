@@ -67,7 +67,8 @@ var Registration = React.createClass({
                              previousStep={this.previousStep}
                              saveValues={this.saveValues} />
       case 3:
-        return <Products   fieldValues={fieldValues}
+        //change below to "Email" for email submissions
+        return <Email  fieldValues={fieldValues}
                              nextStep={this.nextStep}
                              previousStep={this.previousStep}
                              saveValues={this.saveValues} />
